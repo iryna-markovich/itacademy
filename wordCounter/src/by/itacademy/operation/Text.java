@@ -2,7 +2,7 @@ package by.itacademy.operation;
 
 import java.util.*;
 
-public class Text implements Performance {
+public class Text<T> implements Performance<T> {
     private static final Scanner SC = new Scanner(System.in);
     String text;
 
@@ -13,22 +13,19 @@ public class Text implements Performance {
     @Override
     public void execute() {
         System.out.println("Write down some text:");
-        getText();
+        this.text = SC.nextLine().toLowerCase();
     }
 
-    String getText() {
-        text = SC.nextLine().toLowerCase();
-        return text;
+
+
+    String[] getArray(String text) {
+        return text.split(" ");
     }
 
-    String[] toArray(String text) {
-        list = text.split(" ");
-        return list;
+    public T getText() {
+        return (T) text;
     }
 
-    String[] list = text.split(" ");
-
-
-   // TreeSet<String> states = new TreeSet<String>();
+    // TreeSet<String> states = new TreeSet<String>();
 
 }
