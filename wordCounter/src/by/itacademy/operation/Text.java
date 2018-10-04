@@ -1,31 +1,20 @@
 package by.itacademy.operation;
 
-import java.util.*;
+import java.util.Scanner;
 
-public class Text<T> implements Performance<T> {
+public class Text{
     private static final Scanner SC = new Scanner(System.in);
-    String text;
+
+    private String text;
 
     public Text() {
-        this.text = text;
-    }
-
-    @Override
-    public void execute() {
         System.out.println("Write down some text:");
-        this.text = SC.nextLine().toLowerCase();
+        this.text = SC.nextLine();
     }
 
-
-
-    String[] getArray(String text) {
+    String[] getArray() {
         return text.split(" ");
     }
-
-    public T getText() {
-        return (T) text;
-    }
-
-    // TreeSet<String> states = new TreeSet<String>();
-
 }
+
+

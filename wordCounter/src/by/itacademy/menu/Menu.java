@@ -6,16 +6,16 @@ public class Menu implements RootMenuItem {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     private MenuItem[] subMenus = {
-            new MenuListDisplay(this),
-            new MenuFindWord(this)
+            new MenuListDisplay(),
+            new MenuFindWord()
     };
 
     public void execute() {
-        new MenuText().execute();
-        System.out.println("___________________________________");
+        System.out.println("----------------MENU---------------");
         for (int i = 0; i < subMenus.length; i++) {
             System.out.println(i + " " + subMenus[i].getName());
         }
+        System.out.println("___________________________________");
         subMenus[SCANNER.nextInt()].execute();
     }
 }
