@@ -8,4 +8,8 @@ public class MtbankATM extends ATM {
         return this.bankOwnerName;
     }
 
+    @Override
+    public int getTotalCash() {
+        return 0;
+    }
 }

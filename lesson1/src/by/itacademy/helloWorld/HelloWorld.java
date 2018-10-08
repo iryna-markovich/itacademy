@@ -1,4 +1,4 @@
-package lesson1;
+package by.itacademy.helloWorld;
 
 public class HelloWorld {
     public static void main(String[] args) {
