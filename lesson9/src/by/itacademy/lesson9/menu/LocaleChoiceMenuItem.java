@@ -1,7 +1,6 @@
 package by.itacademy.lesson9.menu;
 
 import by.itacademy.lesson9.Locales;
-
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -23,11 +22,11 @@ public class LocaleChoiceMenuItem implements MenuItem, RootMenuItem {
         System.out.println(show.toString());
 
         int choice = scanner.nextInt();
+        next.execute();
+
         localeChoice = locales.get(choice - 1);
         ResourceBundle bundle = ResourceBundle.getBundle("resource", localeChoice);
         System.out.println(bundle.getString("hello"));
-
-        next.execute();
     }
 
     @Override
