@@ -1,11 +1,5 @@
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 public class Menu {
-    JSONReadFromFile readFromFile = new JSONReadFromFile();
-    String json = readFromFile.readFile("D:/Learning/JAVA/itacademy/course_project/properties.json");
+
 
 }
     /*
