@@ -11,6 +11,18 @@ public class Goods {
         this.price = price;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public boolean isVisible() {
+        return visibility;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         StringBuilder info = new StringBuilder();

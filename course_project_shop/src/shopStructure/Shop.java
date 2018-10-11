@@ -25,12 +25,14 @@ public class Shop {
     }
 
     public void showGoods() {
+        System.out.printf("%-10s%-15s%-15s%-10s%n", "ID", "Name", "Price", "On stock");
+        System.out.println("------------------------------------------------");
         for (Map.Entry<Long, Goods> item : goodsList.entrySet()) {
-            System.out.println(item.getKey() + " " + item.getValue());
+            System.out.printf("%-10s%-15s%-15s%-10s%n", item.getKey(), item.getValue().getName(), item.getValue().getPrice(), item.getValue().isVisible());
         }
     }
 
-    public void run() {
+    {
         StringBuilder info = new StringBuilder("МАГАЗИН\n");
         info.append(name).append("\t").append(location).append("\t").append(emails).append("\n");
         System.out.println(info);

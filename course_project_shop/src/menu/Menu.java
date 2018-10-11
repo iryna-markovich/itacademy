@@ -1,17 +1,24 @@
 package menu;
 
+import shopStructure.Shop;
+
 import java.util.Scanner;
 
 public class Menu {
     public static final Scanner SCANNER = new Scanner(System.in);
+    Shop shop = new Shop();
 
     private SubMenu[] subMenus = {
-            new MenuAddGoods(this),
-            new MenuSearch(this),
-            new MenuSort(this),
-            new MenuCount(this),
-            new MenuDeleteGoods(this)
+            new MenuAddGoods(shop, this),
+            new MenuSearch(shop, this),
+            new MenuSort(shop, this),
+            new MenuCount(shop, this),
+            new MenuDeleteGoods(shop, this)
     };
+
+    public Shop getShop() {
+        return shop;
+    }
 
     public void run() {
         System.out.println("\nМеню магазина:");

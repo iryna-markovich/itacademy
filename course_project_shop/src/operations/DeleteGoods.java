@@ -8,15 +8,18 @@ import java.util.Scanner;
 
 public class DeleteGoods implements Operation {
     public static final Scanner SCANNER = new Scanner(System.in);
+    Shop shop;
 
-    private Shop shop = new Shop();
-    private Map<Long, Goods> goodsList = shop.getGoodsList();
+    public DeleteGoods(Shop shop) {
+        this.shop = shop;
+    }
 
     @Override
     public void call() {
+        Map<Long, Goods> goodsList = shop.getGoodsList();
         System.out.println("Какой товар нужно удалить?");
         long toDelete = SCANNER.nextLong();
-        System.out.println("Удаляю товар.........." + toDelete);
+        System.out.println("Tовар .......... " + toDelete + " удален");
         if (goodsList.containsKey(toDelete)) {
             goodsList.remove(toDelete);
         } else {

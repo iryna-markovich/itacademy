@@ -6,13 +6,18 @@ import shopStructure.Shop;
 import java.util.Map;
 
 public class AddGoods implements Operation {
-    private Shop shop = new Shop();
-    private Map<Long, Goods> goodsList = shop.getGoodsList();
+    private Shop shop;
+
+    public AddGoods(Shop shop) {
+        this.shop = shop;
+    }
+
     private int counter = 1;
 
     @Override
     public void call() {
-        System.out.println("Добавляю товар..........");
+        Map<Long, Goods> goodsList = shop.getGoodsList();
+        System.out.println("Товар добавлен:");
         goodsList.put(0L + counter, new Goods("something" + counter, true, 45));
         shop.showGoods();
         counter++;
