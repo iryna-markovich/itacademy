@@ -1,19 +1,18 @@
 package by.itacademy.lesson9.locales;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
 public class Locales {
-    private List<Locale> locales = new ArrayList<>();
+    private List<Locale> locales = Arrays.asList(new Locale("by"), new Locale("ru"), new Locale("en"));
 
-    {
-        locales.add(new Locale("by"));
-        locales.add(new Locale("ru"));
-        locales.add(new Locale("en"));
+    public Locale get(int i) {
+        return locales.get(i);
     }
 
-    public List<Locale> get() {
-        return locales;
+    public int size() {
+        return locales.size();
     }
 }
