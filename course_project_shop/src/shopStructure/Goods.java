@@ -29,4 +29,6 @@ public class Goods {
         info.append("\tName: ").append(name).append("\tPrice: ").append(price).append("\tOn stock: ").append(visibility);
         return info.toString();
     }
+
 }
+

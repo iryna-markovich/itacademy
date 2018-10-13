@@ -1,6 +1,7 @@
 package by.itacademy.lesson9.locales.menu;
 
 import by.itacademy.lesson9.locales.Locales;
+import javafx.scene.web.HTMLEditorSkin;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -25,6 +26,18 @@ public class LocaleChoiceMenuItem implements MenuItem, RootMenuItem {
         ResourceBundle bundle = ResourceBundle.getBundle("resource", localeChoice);
         System.out.println(bundle.getString("hello"));
 
+
+
+        String locale = System.getProperty("microedition.locale");
+        String exitStr = (String) bundle.handleGetObject("exit");
+
+
+
+
+
+
+
+
         next.execute();
     }
 
@@ -33,3 +46,4 @@ public class LocaleChoiceMenuItem implements MenuItem, RootMenuItem {
         return localeChoice;
     }
 }
+

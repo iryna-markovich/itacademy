@@ -1,19 +1,16 @@
 package shopStructure;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Shop {
     private String name = "Super shop";
     private String location = "Minsk";
     private List<String> emails = Arrays.asList("sgasdg@gmail.com", "aaaaasfs@gmail.com", "bbbesfwef@gmail.com");
-    private Map<Long, Goods> goodsList = new HashMap<>();
+    private Map<Long, Goods> goodsList = new TreeMap<>();
 
     {
-        goodsList.put(0L, new Goods("something0", true, 45));
-        goodsList.put(9L, new Goods("something9", true, 45));
+        goodsList.put(900L, new Goods("AAAAA900", true, 45));
+        goodsList.put(35L, new Goods("z35", true, 45));
     }
 
     public Map<Long, Goods> getGoodsList() {

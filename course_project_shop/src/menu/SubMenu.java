@@ -1,8 +1,6 @@
 package menu;
 
-import operations.AddGoods;
 import operations.Operation;
-import shopStructure.Shop;
 
 public abstract class SubMenu implements MenuItem {
     private Operation operation;
