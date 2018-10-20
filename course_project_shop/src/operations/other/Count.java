@@ -1,5 +1,6 @@
-package operations;
+package operations.other;
 
+import operations.Operation;
 import shopStructure.Shop;
 
 public class Count implements Operation {

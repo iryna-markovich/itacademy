@@ -1,5 +1,6 @@
 package menu;
 
+import exceptions.ArrayIndexOutOfBoundsException;
 import operations.Operation;
 
 public abstract class SubMenu implements MenuItem {
@@ -13,7 +14,7 @@ public abstract class SubMenu implements MenuItem {
 
     public abstract String getName();
 
-    public void run(){
+    public void run() throws ArrayIndexOutOfBoundsException {
         operation.call();
         menuItem.run();
     }

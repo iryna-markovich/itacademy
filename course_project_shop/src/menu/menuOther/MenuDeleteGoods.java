@@ -1,6 +1,9 @@
-package menu;
+package menu.menuOther;
 
-import operations.DeleteGoods;
+import menu.Menu;
+import menu.MenuItem;
+import menu.SubMenu;
+import operations.other.DeleteGoods;
 import shopStructure.Shop;
 
 public class MenuDeleteGoods extends SubMenu implements MenuItem {

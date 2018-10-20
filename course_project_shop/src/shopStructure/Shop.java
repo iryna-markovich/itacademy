@@ -1,19 +1,25 @@
 package shopStructure;
 
+import operations.GoodsNameComparator;
+
 import java.util.*;
 
-public class Shop {
+public class Shop extends GoodsNameComparator {
     private String name = "Super shop";
     private String location = "Minsk";
     private List<String> emails = Arrays.asList("sgasdg@gmail.com", "aaaaasfs@gmail.com", "bbbesfwef@gmail.com");
-    private Map<Long, Goods> goodsList = new TreeMap<>();
+    private GoodsNameComparator goodsNameComparator = new GoodsNameComparator();
+    private Set<Goods> goodsList = new TreeSet<>(goodsNameComparator);
 
     {
-        goodsList.put(900L, new Goods("AAAAA900", true, 45));
-        goodsList.put(35L, new Goods("z35", true, 45));
+        goodsList.add(new Goods(0L, "CD player", "Super CD player SONY", "2004-10-25", 45, true));
+        goodsList.add(new Goods(1L, "Car BMW", "Silver car", "2010-10-25", 534, true));
+        goodsList.add(new Goods(2L, "Milk", "Milk 3.5%", "2012-10-25", 12, true));
+        goodsList.add(new Goods(3L, "Bag", "Super bag for notebook", "2015-10-25", 34, true));
+        goodsList.add(new Goods(4L, "Bus", "Big bus", "2007-10-25", 54, true));
     }
 
-    public Map<Long, Goods> getGoodsList() {
+    public Set<Goods> getGoodsList() {
         return goodsList;
     }
 
@@ -21,11 +27,15 @@ public class Shop {
         return goodsList.size();
     }
 
+    public void showTableHead() {
+        System.out.printf("%-10s%-15s%-30s%-15s%-10s%-10s%n", "ID", "Name", "Description", "Year", "Price", "On stock");
+        System.out.println("-------------------------------------------------------------------------------------------");
+    }
+
     public void showGoods() {
-        System.out.printf("%-10s%-15s%-15s%-10s%n", "ID", "Name", "Price", "On stock");
-        System.out.println("------------------------------------------------");
-        for (Map.Entry<Long, Goods> item : goodsList.entrySet()) {
-            System.out.printf("%-10s%-15s%-15s%-10s%n", item.getKey(), item.getValue().getName(), item.getValue().getPrice(), item.getValue().isVisible());
+        showTableHead();
+        for (Goods item : goodsList) {
+            item.getString();
         }
     }
 
@@ -36,3 +46,8 @@ public class Shop {
         showGoods();
     }
 }
+
+
+
+
+
