@@ -1,0 +1,46 @@
+<shop>
+    <name>Магазин</name>
+    <products>
+        <product company="КомпанияАльбом">
+            <name>Альбом</name>
+            <description>Очень хороший альбом</description>
+            <price>56</price>
+            <produced>2006</produced>
+        </product>
+        <product company="КомпанияКонфета">
+            <name>Конфета</name>
+            <description>Очень вкусная конфета</description>
+            <price>35</price>
+            <produced>2016</produced>
+        </product>
+        <product company="КомпанияСмартфон">
+            <name>Смартфон</name>
+            <description>Очень красивый смартфон</description>
+            <price>99</price>
+            <produced>2018</produced>
+        </product>
+    </products>
+    <employees>
+        <employee>
+            <name>Екатерина</name>
+            <surname>Петрова</surname>
+            <position>продавец</position>
+            <recruitment>23-07-2000</recruitment>
+            <salary>300</salary>
+        </employee>
+        <employee>
+            <name>Николай</name>
+            <surname>Новиков</surname>
+            <position>продавец</position>
+            <recruitment>13-05-1999</recruitment>
+            <salary>350</salary>
+        </employee>
+        <employee>
+            <name>Светлана</name>
+            <surname>Васильева</surname>
+            <position>директор</position>
+            <recruitment>30-10-2012</recruitment>
+            <salary>350</salary>
+        </employee>
+    </employees>
+</shop>
