@@ -1,8 +1,7 @@
 package menu;
-import exceptions.ArrayIndexOutOfBoundsException;
 
-public interface MenuItem{
+public interface MenuItem {
     String getName();
 
-    void run() throws ArrayIndexOutOfBoundsException;
+    void run();
 }
