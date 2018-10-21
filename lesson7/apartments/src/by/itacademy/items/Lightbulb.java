@@ -1,8 +1,8 @@
 package by.itacademy.items;
 
 public class LightBulb implements Item {
-    String name = "лампочка";
-    int illumination;
+    private String name;
+    private int illumination;
 
     public LightBulb(int illumination) {
         this.illumination = illumination;

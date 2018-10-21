@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Building {
-    String buildingName;
+    private String buildingName;
 
-    List<Apartment> building = new ArrayList<>();
+    private List<Apartment> building = new ArrayList<>();
 
     public Building(String buildingName) {
         this.buildingName = buildingName;
     }
 
-    void addApartament(String name, int square, int window) {
+    public void addApartament(String name, int square, int window) {
         building.add(new Apartment(name, square, window));
     }
 

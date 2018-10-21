@@ -1,8 +1,8 @@
 package by.itacademy.items;
 
 public class Armchair implements Item {
-    String name;
-    int square;
+    private String name;
+    private int square;
 
     public Armchair(String name, int square) {
         this.name = name;

@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Apartment {
-    String name;
-    int square;
-    int window;
+    private String name;
+    private int square;
+    private int window;
     List<Item> apartament = new ArrayList<>();
 
     public Apartment(String name, int square, int window) {
@@ -19,21 +19,21 @@ public class Apartment {
         this.window = window;
     }
 
-    int lightBulbIllumination0() {
+    public int lightBulbIllumination0() {
         if (apartament.size() == 0) {
             return 0;
         }
         return apartament.get(0).getParam();
     }
 
-    int lightBulbIllumination1() {
+    public int lightBulbIllumination1() {
         if (apartament.size() == 0) {
             return 0;
         }
         return apartament.get(1).getParam();
     }
 
-    int summaryIllumination() throws IlluminanceLimitException {
+    public int summaryIllumination() throws IlluminanceLimitException {
         int summaryIllumination = window * 700 + lightBulbIllumination0() + lightBulbIllumination1();
         if (summaryIllumination < 300) {
             throw new IlluminanceLimitException();
@@ -43,20 +43,20 @@ public class Apartment {
         return summaryIllumination;
     }
 
-    int SquareArmchair() {
+    public int SquareArmchair() {
         return (apartament.size() == 0) ? 0 : apartament.get(2).getParam();
     }
 
-    int SquareTable() {
+    public int SquareTable() {
         return (apartament.size() == 0) ? 0 : apartament.get(3).getParam();
     }
 
-    int occupiedSpace() {
+    public int occupiedSpace() {
         int occupiedSpace = SquareArmchair() + SquareTable();
         return occupiedSpace;
     }
 
-    int getPartition() throws SpaceLimitException {
+    public int getPartition() throws SpaceLimitException {
         int part = (int) (((double) (square - occupiedSpace()) / square) * 100);
         if (part < (100 - 70)) {
             throw new SpaceLimitException("");
