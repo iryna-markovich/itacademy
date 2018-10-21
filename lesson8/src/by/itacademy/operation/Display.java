@@ -1,37 +1,31 @@
 package by.itacademy.operation;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
 
-public class Display<T> implements Performance<T> {
-    private String[] list = new Text().getArray();
-    LengthComparator<String> comparator = new LengthComparator();
-    Map<String, Integer> wordAndOccurrences = new HashMap<>();
-    TreeSet<String> listSet = new TreeSet<>(comparator);
+public class Display implements Operation {
+    Text text;
+
+    LengthComparator comparator = new LengthComparator();
+    Set<String> listSet = new TreeSet<>(comparator);
+
+    public Display(Text text) {
+        this.text = text;
+    }
 
     public void makeSet(String[] list) {
         for (String word : list) {
             listSet.add(word);
         }
-        count(list);
-    }
-
-    public void count(String[] list) {
-        for (String word : list) {
-            Integer counter = wordAndOccurrences.get(word);
-            if (counter == null) {
-                counter = 0;
-            }
-            wordAndOccurrences.put(word, counter + 1);
-        }
+        text.count(list);
     }
 
     @Override
-    public void execute() {
+    public void call() {
+        String[] list = text.getText();
         makeSet(list);
         for (String word : listSet) {
-            System.out.println(word + " " + wordAndOccurrences.get(word).intValue());
+            System.out.println(word + " " + text.wordAndOccurrences.get(word).intValue());
         }
     }
 }
