@@ -25,6 +25,7 @@ public class Student {
         this.isDismissed = dismissed;
     }
 
+    /*
     @Override
     public String toString() {
         return "Student{" +
@@ -33,5 +34,5 @@ public class Student {
                 ", isDismissed=" + isDismissed +
                 ", dateBirthday=" + dateBirthday +
                 '}';
-    }
+    }*/
 }
