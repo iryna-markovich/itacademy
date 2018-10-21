@@ -23,7 +23,7 @@ public class Main {
 
         String nameField = "";
         Class<?> typeField = null;
-        
+
         for (Field f : fields) {
             if (f.isAnnotationPresent(Generate.class)) {
                 nameField = f.getName();

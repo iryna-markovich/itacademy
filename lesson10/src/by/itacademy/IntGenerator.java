@@ -1,6 +1,5 @@
 package by.itacademy;
 
-import java.util.Date;
 import java.util.Random;
 
 public class IntGenerator implements RandomGenerator<Integer> {
