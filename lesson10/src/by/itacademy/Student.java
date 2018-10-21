@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class Student {
     private String name;
-    @Generate
     private int age;
     private boolean isDismissed;
+    @Generate
     private Date dateBirthday;
 
     public void setName(String name) {
@@ -22,7 +22,7 @@ public class Student {
     }
 
     public void setIsDismissed(boolean dismissed) {
-        isDismissed = dismissed;
+        this.isDismissed = dismissed;
     }
 
     @Override
