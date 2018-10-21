@@ -1,13 +1,20 @@
 package by.itacademy;
 
+import by.itacademy.items.Armchair;
+import by.itacademy.items.LightBulb;
+import by.itacademy.items.Table;
+
 public class Main {
     public static void main(String[] args) {
-        Building building = new Building("Building 001");
-        building.addApartment("Apartment 1", 10.4, 1);
-        building.addApartment("Apartment 2", 28.4, 2);
-     //   building.addItem(3,200);
-        System.out.println(building.toString());
-  //      building.add(2, new Lightbulb(250));
+        Building building = new Building("Здание 1");
+        building.addApartament("Комната 1", 100, 3);
+        building.addApartament("Комната 2", 5, 2);
+
+        building.add(1, new LightBulb(150));
+        building.add(1, new LightBulb(250));
+        building.add(1, new Table("Стол", 3));
+        building.add(1, new Armchair("Кресло мягкое и пушистое", 10));
+        building.info();
     }
 }
 

@@ -1,15 +1,20 @@
 package by.itacademy.items;
 
-import java.util.ArrayList;
+public class LightBulb implements Item {
+    String name = "лампочка";
+    int illumination;
 
-public class Lightbulb extends Items{
-    int lightness;
-
-    public Lightbulb(int lightness) {
-        this.lightness = lightness;
+    public LightBulb(int illumination) {
+        this.illumination = illumination;
     }
 
-    public int getLightness() {
-        return lightness;
+    @Override
+    public int getParam() {
+        return illumination;
+    }
+
+    @Override
+    public String getItemName() {
+        return name;
     }
 }

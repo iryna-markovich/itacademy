@@ -1,33 +1,42 @@
 package by.itacademy;
 
-import by.itacademy.apartment.Apartment;
-import by.itacademy.items.Lightbulb;
+import by.itacademy.items.Armchair;
+import by.itacademy.items.LightBulb;
+import by.itacademy.items.Table;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Building extends ArrayList<Apartment> implements Adding {
-    private String name;
+public class Building {
+    String buildingName;
 
-    public Building(String name) {
-        this.name = name;
+    List<Apartment> building = new ArrayList<>();
+
+    public Building(String buildingName) {
+        this.buildingName = buildingName;
     }
 
-    @Override
-    public void addApartment(String name, double area, int window) {
-        super.add(new Apartment(name, area, window));
+    void addApartament(String name, int square, int window) {
+        building.add(new Apartment(name, square, window));
     }
 
-    @Override
-    public void addItem(int roomNumber, Lightbulb bulb) {
-        super.set(roomNumber, super.add(bulb));
+    public void add(int number, Table table) {
+        building.get(number - 1).apartament.add(table);
     }
 
-    @Override
-    public String toString() {
-        StringBuilder out = new StringBuilder();
-        out.append(name).append("\n").append(super.toString());
-        return out.toString();
+    public void add(int number, LightBulb lightBulb) {
+        building.get(number - 1).apartament.add(lightBulb);
     }
 
+    public void add(int number, Armchair armchair) {
+        building.get(number - 1).apartament.add(armchair);
+    }
+
+    public void info() {
+        System.out.println(buildingName);
+        for (Apartment apartment : building) {
+            System.out.println(apartment);
+        }
+    }
 }
 
