@@ -25,19 +25,6 @@ public class LocaleChoiceMenuItem implements MenuItem, RootMenuItem {
         localeChoice = locales.get(choice - 1);
         ResourceBundle bundle = ResourceBundle.getBundle("resource", localeChoice);
         System.out.println(bundle.getString("hello"));
-
-
-
-        String locale = System.getProperty("microedition.locale");
-        String exitStr = (String) bundle.handleGetObject("exit");
-
-
-
-
-
-
-
-
         next.execute();
     }
 
