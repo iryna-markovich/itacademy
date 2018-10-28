@@ -1,5 +1,7 @@
 package by.itacademy;
 
+import by.itacademy.exception.IlluminanceLimitException;
+import by.itacademy.exception.SpaceLimitException;
 import by.itacademy.items.Armchair;
 import by.itacademy.items.LightBulb;
 import by.itacademy.items.Table;
@@ -9,7 +11,6 @@ import java.util.List;
 
 public class Building {
     private String buildingName;
-
     private List<Apartment> building = new ArrayList<>();
 
     public Building(String buildingName) {
@@ -21,22 +22,21 @@ public class Building {
     }
 
     public void add(int number, Table table) {
-        building.get(number - 1).apartament.add(table);
+        building.get(number - 1).tables.add(table);
     }
 
     public void add(int number, LightBulb lightBulb) {
-        building.get(number - 1).apartament.add(lightBulb);
+        building.get(number - 1).lightBulbs.add(lightBulb);
     }
 
     public void add(int number, Armchair armchair) {
-        building.get(number - 1).apartament.add(armchair);
+        building.get(number - 1).armchairs.add(armchair);
     }
 
-    public void info() {
+    public void info() throws IlluminanceLimitException, SpaceLimitException {
         System.out.println(buildingName);
-        for (Apartment apartment : building) {
-            System.out.println(apartment);
-        }
+        for (Apartment apartment : building)
+            apartment.show();
     }
 }
 

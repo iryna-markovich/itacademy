@@ -1,6 +1,6 @@
 package by.itacademy.items;
 
-public class Armchair implements Item {
+public class Armchair {
     private String name;
     private int square;
 
@@ -9,14 +9,13 @@ public class Armchair implements Item {
         this.square = square;
     }
 
-    @Override
     public int getParam() {
         return square;
     }
 
     @Override
-    public String getItemName() {
-        return name;
+    public String toString() {
+        return name + " (площадь " + square + " м^2)\n";
     }
 }
 

@@ -2,7 +2,9 @@ package by.itacademy;
 
 import by.itacademy.exception.IlluminanceLimitException;
 import by.itacademy.exception.SpaceLimitException;
-import by.itacademy.items.Item;
+import by.itacademy.items.Armchair;
+import by.itacademy.items.LightBulb;
+import by.itacademy.items.Table;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,9 @@ public class Apartment {
     private String name;
     private int square;
     private int window;
-    List<Item> apartament = new ArrayList<>();
+    List<Table> tables = new ArrayList<>();
+    List<Armchair> armchairs = new ArrayList<>();
+    List<LightBulb> lightBulbs = new ArrayList<>();
 
     public Apartment(String name, int square, int window) {
         this.name = name;
@@ -19,22 +23,16 @@ public class Apartment {
         this.window = window;
     }
 
-    public int lightBulbIllumination0() {
-        if (apartament.size() == 0) {
-            return 0;
+    public int lightBulbIllumination() {
+        int summary = 0;
+        for (int i = 0; i < lightBulbs.size(); i++) {
+            summary += lightBulbs.get(i).getParam();
         }
-        return apartament.get(0).getParam();
-    }
-
-    public int lightBulbIllumination1() {
-        if (apartament.size() == 0) {
-            return 0;
-        }
-        return apartament.get(1).getParam();
+        return summary;
     }
 
     public int summaryIllumination() throws IlluminanceLimitException {
-        int summaryIllumination = window * 700 + lightBulbIllumination0() + lightBulbIllumination1();
+        int summaryIllumination = window * 700 + lightBulbIllumination();
         if (summaryIllumination < 300) {
             throw new IlluminanceLimitException();
         } else if (summaryIllumination > 4000) {
@@ -44,11 +42,19 @@ public class Apartment {
     }
 
     public int SquareArmchair() {
-        return (apartament.size() == 0) ? 0 : apartament.get(2).getParam();
+        int summary = 0;
+        for (int i = 0; i < armchairs.size(); i++) {
+            summary += armchairs.get(i).getParam();
+        }
+        return summary;
     }
 
     public int SquareTable() {
-        return (apartament.size() == 0) ? 0 : apartament.get(3).getParam();
+        int summary = 0;
+        for (int i = 0; i < tables.size(); i++) {
+            summary += tables.get(i).getParam();
+        }
+        return summary;
     }
 
     public int occupiedSpace() {
@@ -64,26 +70,37 @@ public class Apartment {
         return part;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder info = new StringBuilder(name + "\n");
-        try {
-            if (apartament.size() > 0) {
-                info.append("Освещённость = ").append(summaryIllumination()).append("(").append(window).append(" окна по 700 лк, лампочки ").append(lightBulbIllumination0()).append(" лк и ").append(lightBulbIllumination1()).append(" лк)")
-                        .append("\nПлощадь = ").append(square).append(" м^2 (занято ").append(occupiedSpace()).append(" м^2, свободно ").append(square - occupiedSpace()).append(" м^2 или ").append(getPartition()).append(" % площади)")
-                        .append("\nМебель:\n")
-                        .append(apartament.get(2).getItemName()).append(" (площадь ").append(apartament.get(2).getParam()).append(" м^2)").append("\n")
-                        .append(apartament.get(3).getItemName()).append(" (площадь ").append(apartament.get(3).getParam()).append(" м^2)");
-            } else {
-                info.append("Освещённость = ").append(summaryIllumination()).append("(").append(window).append(" окна по 700 лк)")
-                        .append("\nПлощадь = ").append(square).append(" м^2 (свободно ").append(getPartition()).append(" % площади)")
-                        .append("\nНет мебели");
+    void show() throws IlluminanceLimitException, SpaceLimitException {
+        System.out.print(name + "\nОсвещённость = " + summaryIllumination() + " (" + window + " по 700 лк");
+
+        if (lightBulbs.size() > 0) {
+            System.out.print(", лампочки ");
+            for (int i = 0; i < lightBulbs.size(); i++) {
+                if (i == lightBulbs.size() - 1) {
+                    System.out.print(lightBulbs.get(i));
+                } else
+                    System.out.print(lightBulbs.get(i) + " и ");
             }
-        } catch (IlluminanceLimitException e) {
-            e.printStackTrace();
-        } catch (SpaceLimitException e) {
-            e.printStackTrace();
+        } else {
+            System.out.print("");
         }
-        return info.toString();
+
+        if (occupiedSpace() > 0) {
+            System.out.print(")\nПлощадь = " + square + " м^2 (занято " + occupiedSpace() + " м^2, свободно " + (square - occupiedSpace()) + " м^2 или " + getPartition() + " % площади)");
+        } else {
+            System.out.print(")\nПлощадь = " + square + " м^2 (свободно " + getPartition() + " % площади)");
+        }
+
+        if (armchairs.size() > 0 || tables.size() > 0) {
+            System.out.print("\nМебель:\n");
+            for (Armchair item : armchairs) {
+                System.out.print(item);
+            }
+            for (Table item : tables) {
+                System.out.print(item);
+            }
+        } else {
+            System.out.println("\nНет мебели");
+        }
     }
 }

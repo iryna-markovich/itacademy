@@ -1,20 +1,18 @@
 package by.itacademy.items;
 
-public class LightBulb implements Item {
-    private String name;
+public class LightBulb {
     private int illumination;
 
     public LightBulb(int illumination) {
         this.illumination = illumination;
     }
 
-    @Override
     public int getParam() {
         return illumination;
     }
 
     @Override
-    public String getItemName() {
-        return name;
+    public String toString() {
+        return illumination + " лк";
     }
 }
