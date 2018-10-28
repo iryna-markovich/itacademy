@@ -1,0 +1,28 @@
+<servicestation>
+    <customers>
+        <customer>
+            <id>0</id>
+            <name>Nick</name>
+            <lastOrder>2006-05-12</lastOrder>
+            <dateOfBirth>2000-02-30</dateOfBirth>
+            <car>bmw</car>
+            <discount>true</discount>
+        </customer>
+        <customer>
+            <id>1</id>
+            <name>Mary</name>
+            <lastOrder>2006-07-05</lastOrder>
+            <dateOfBirth>1990-11-20</dateOfBirth>
+            <car>mazda</car>
+            <discount>true</discount>
+        </customer>
+        <customer>
+            <id>2</id>
+            <name>Tom</name>
+            <lastOrder>1996-07-22</lastOrder>
+            <dateOfBirth>2015-12-30</dateOfBirth>
+            <car>opel</car>
+            <discount>false</discount>
+        </customer>
+    </customers>
+</servicestation>
