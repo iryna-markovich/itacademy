@@ -1,0 +1,16 @@
+{
+  "hospital": [
+    {
+      "name": "Paul",
+      "surname": "Mccartney",
+      "dateOfBirth": "18.06.1942",
+      "isSick": true
+    },
+    {
+      "name": "Michael",
+      "surname": "Jackson",
+      "dateOfBirth": "29.08.1958",
+      "isSick": false
+    }
+  ]
+}
