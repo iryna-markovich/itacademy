@@ -3,18 +3,21 @@ package by.itacademy;
 import java.util.Date;
 
 public class Student {
+    @Generate
     private String name;
+    @Generate
     private int age;
+    @Generate
     private boolean isDismissed;
     @Generate
-    private Date dateBirthday;
+    private Date birthday;
 
     public void setName(String name) {
         this.name = name;
     }
 
     public void setDateBirthday(Date dateBirthday) {
-        this.dateBirthday = dateBirthday;
+        this.birthday = dateBirthday;
     }
 
     public void setAge(int age) {
@@ -25,14 +28,11 @@ public class Student {
         this.isDismissed = dismissed;
     }
 
-    /*
+
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", isDismissed=" + isDismissed +
-                ", dateBirthday=" + dateBirthday +
-                '}';
-    }*/
+        StringBuilder info = new StringBuilder("Student\n");
+        info.append(name).append("\t").append(age).append("\ndismissed: ").append(isDismissed).append("\nbirthday: ").append(birthday);
+        return info.toString();
+    }
 }
