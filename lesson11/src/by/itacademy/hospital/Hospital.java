@@ -14,3 +14,4 @@ public class Hospital {
         return patients.toString();
     }
 }
+
