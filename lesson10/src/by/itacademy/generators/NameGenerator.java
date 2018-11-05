@@ -1,6 +1,6 @@
-package by.itacademy;
+package by.itacademy.generators;
 
-import java.util.*;
+import java.util.Random;
 
 public class NameGenerator implements RandomGenerator<String> {
     String[] names = {"Авдей", "Аверкий", "Авксентий", "Агафон",

@@ -1,4 +1,4 @@
-package by.itacademy;
+package by.itacademy.generators;
 
 import java.util.Calendar;
 import java.util.Date;

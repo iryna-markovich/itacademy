@@ -1,7 +1,14 @@
 package by.itacademy;
 
-import java.lang.reflect.*;
-import java.util.*;
+import by.itacademy.generators.*;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
