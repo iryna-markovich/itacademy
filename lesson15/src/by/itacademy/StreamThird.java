@@ -9,6 +9,6 @@ public class StreamThird extends Thread {
 
     @Override
     public void run() {
-        SO.execute();
+        SO.start();
     }
 }
