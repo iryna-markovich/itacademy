@@ -1,3 +1,5 @@
+package by.itacademy.hospital;
+
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -14,16 +16,11 @@ public class Hospital {
         this.patients = patients;
     }
 
-    public void add(Patient patient){
+    public void add(Patient patient) {
         patients.add(patient);
     }
 
-    public List<Patient> getPatients() {
-        return patients;
-    }
-
-    public String toJson(){
-
+    public String toJson() {
         return new Gson().toJson(this);
     }
 }

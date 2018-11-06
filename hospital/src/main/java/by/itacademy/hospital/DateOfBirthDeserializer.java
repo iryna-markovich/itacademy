@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class DateOfBirth implements JsonDeserializer<Date> {
+public class DateOfBirthDeserializer implements JsonDeserializer<Date> {
     @Override
     public Date deserialize(JsonElement element, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         String date = element.getAsString();
