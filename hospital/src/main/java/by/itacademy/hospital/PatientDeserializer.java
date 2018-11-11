@@ -14,8 +14,6 @@ public class PatientDeserializer implements JsonDeserializer<Patient> {
         patient.setDateOfBirth((DateOfBirthDeserializer) context.deserialize(jsonObject.get("dateOfBirth"), DateOfBirthDeserializer.class));
         patient.setIsSick(jsonObject.get("isSick").getAsBoolean());
 
-        //patient.setSurname((FacialHair) context.deserialize(jsonObject.get("facialHair"), FacialHair.class));
-
         JsonArray weapons = jsonObject.getAsJsonArray("weapons");
 
         return patient;
