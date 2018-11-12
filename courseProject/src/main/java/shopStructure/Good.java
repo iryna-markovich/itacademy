@@ -74,7 +74,7 @@ public class Good {
     public String toString() {
         StringBuilder info = new StringBuilder("%-10s%-15s%-30s%-15s%-10s%-10s%n");
         info.append(id).append(name).append(description).append(year).append(price).append(visible);
-        return "Addressssssssssssssssssssssssssssssssssss";
+        return "info";
     }
 }
 

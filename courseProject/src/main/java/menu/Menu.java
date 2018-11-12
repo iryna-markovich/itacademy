@@ -4,6 +4,7 @@ import menu.menuSearch.MenuSearchByName;
 import menu.menuSearch.MenuSearchByPriceRange;
 import menu.menuSort.MenuSortByName;
 import menu.menuSort.MenuSortByPrice;
+import shopStructure.JsonShopReader;
 import shopStructure.Shop;
 
 import java.util.InputMismatchException;
@@ -14,16 +15,15 @@ import java.util.logging.Logger;
 public class Menu {
     public static final Logger LOGGER = Logger.getLogger(Menu.class.getName());
     public static final Scanner SCANNER = new Scanner(System.in);
-   // public static Shop shop;
-    public static Shop shop = new Shop();
+    private static Shop shop;
 
     private SubMenu[] subMenu = {
             //"Найти товар"
-            new MenuSortByName(shop, this),
-            new MenuSortByPrice(shop, this),
+            new MenuSortByName(getShop(), this),
+            new MenuSortByPrice(getShop(), this),
             //"Показать товары"
-            new MenuSearchByName(shop, this),
-            new MenuSearchByPriceRange(shop, this),
+            new MenuSearchByName(getShop(), this),
+            new MenuSearchByPriceRange(getShop(), this),
 
             // new MenuAddGoods(shop, this),
             // new MenuCount(shop, this),
@@ -36,11 +36,16 @@ public class Menu {
             */
     };
 
-    public Shop getShop() {
+    public static Shop getShop() {
         return shop;
     }
 
+    public static void setShop(Shop shop) {
+        Menu.shop = shop;
+    }
+
     public void run() {
+        new JsonShopReader().call();
         StringBuilder menu = new StringBuilder("\nМеню магазина:\n");
         for (int i = 0; i < subMenu.length; i++) {
             menu.append(i + 1).append(" ").append(subMenu[i].getName()).append("\n");

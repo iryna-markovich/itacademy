@@ -3,6 +3,7 @@ package shopStructure;
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
+import java.util.Arrays;
 
 public class ShopDeserializer implements JsonDeserializer<Shop> {
     @Override

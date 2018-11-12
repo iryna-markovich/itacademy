@@ -3,12 +3,12 @@ package shopStructure;
 import com.google.gson.Gson;
 import operations.GoodsNameComparator;
 
-import java.util.*;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Shop extends GoodsNameComparator {
-    private String name = "Super shop";
-    private String location = "Minsk";
-    private List<String> emails = Arrays.asList("sgasdg@gmail.com", "aaaaasfs@gmail.com", "bbbesfwef@gmail.com");
+    ShopDeserializer shopDeserializer;
+
     private GoodsNameComparator goodsNameComparator = new GoodsNameComparator();
 
     private Set<Good> goodList = new TreeSet<>(goodsNameComparator);
@@ -18,7 +18,6 @@ public class Shop extends GoodsNameComparator {
     }
 
     public Shop() {
-
     }
 
     public void add(Good good) {
@@ -45,17 +44,9 @@ public class Shop extends GoodsNameComparator {
         }
     }
 
-    {
-        StringBuilder info = new StringBuilder(name);
-        info.append("\t").append(location).append("\t").append(emails).append("\n");
-        System.out.println(info);
-        showGoods();
-    }
-
     public String toJson() {
         return new Gson().toJson(this);
     }
+
 }
-
-
 

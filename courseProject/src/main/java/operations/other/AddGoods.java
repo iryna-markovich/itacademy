@@ -13,9 +13,7 @@ import shopStructure.ShopDeserializer;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.rmi.registry.Registry;
 import java.util.Objects;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,7 +29,7 @@ public class AddGoods implements Operation {
                     .registerTypeAdapter(Shop.class, new ShopDeserializer())
                     .registerTypeAdapter(Good.class, new GoodDeserializer())
                     .create();
-            Menu.shop = gson.fromJson(isr, Shop.class);
+            Menu.setShop(gson.fromJson(isr, Shop.class));
         } catch (JsonParseException | IOException e) {
             LOGGER.log(Level.INFO, e.getMessage());
         }
