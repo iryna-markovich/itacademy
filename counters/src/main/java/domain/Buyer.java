@@ -1,6 +1,6 @@
 package domain;
 
-import goods.Good;
+import domain.goods.Good;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,14 +1,14 @@
-package goods;
+package domain.goods;
 
-public class Milk implements Good {
+public class Butter implements Good {
     @Override
     public String getName() {
-        return "milk";
+        return "butter";
     }
 
     @Override
     public double getPrice() {
-        return 2.3;
+        return 1.5;
     }
 
     @Override

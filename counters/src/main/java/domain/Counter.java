@@ -1,37 +1,45 @@
 package domain;
 
-import goods.Good;
+import domain.goods.Good;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Queue;
 
 import static java.lang.Thread.currentThread;
 
 public class Counter {
-    final private Queue<Buyer> buyers;
+    final private BuyerQueue queue;
 
-    public Counter(Queue<Buyer> buyers) {
-        this.buyers = buyers;
+    public Counter(BuyerQueue queue) {
+        this.queue = queue;
     }
 
     public void service() {
-        Buyer buyer;
-        synchronized (buyers) {
-            while (buyers.isEmpty()) {
-                try {
-                    buyers.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            buyer = buyers.poll();
+        Buyer buyer = queue.select();
 
-        }
+//        synchronized (buyers) {
+//            while (buyers.isEmpty()) {
+//                try {
+//                    buyers.wait();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            buyer = buyers.poll();
+//        }
+
+        StringBuilder s = new StringBuilder();
         if (buyer.buy(costOf(buyer.getGoods()))) {
-            System.out.println(buyer.getName() + " " + currentThread().getName() + " " + buyer.getGoods());
+            s.append(buyer.getGoods());
         } else {
-            System.out.println(buyer.getName() + " " + currentThread().getName() + " not enough money");
+            s.append("Недостаточно средств!");
         }
+        s.append(" ").append(buyer.getName())
+                .append(" ").append(buyer.getSumOfMoney())
+                .append(" ").append(currentThread().getName());
+        System.out.println(s);
+
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {

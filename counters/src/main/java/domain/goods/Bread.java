@@ -1,4 +1,4 @@
-package goods;
+package domain.goods;
 
 public class Bread implements Good {
     @Override

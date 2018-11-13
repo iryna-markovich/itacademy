@@ -1,17 +1,16 @@
 package domain;
 
-import goods.Bread;
-import goods.Butter;
-import goods.Milk;
+import domain.goods.Bread;
+import domain.goods.Butter;
+import domain.goods.Milk;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
 import java.util.Random;
 
 public class BuyerGenerator {
-    private final Queue<Buyer> buyers;
+    private final BuyerQueue queue;
     private List<Buyer> regularBuyers = Arrays.asList(
             new Buyer("Name_1", 100).add(new Milk()).add(new Bread()).add(new Butter()),
             new Buyer("Name_2", 2).add(new Milk()).add(new Milk()).add(new Butter()),
@@ -22,12 +21,12 @@ public class BuyerGenerator {
     );
     private final Random random = new Random();
 
-    public BuyerGenerator(Queue<Buyer> buyers) {
-        this.buyers = buyers;
+    public BuyerGenerator(BuyerQueue queue) {
+        this.queue = queue;
     }
 
     public void execute() {
-        final Thread thread = new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 while (true) {
@@ -36,11 +35,8 @@ public class BuyerGenerator {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Buyer buyer = regularBuyers.get(random.nextInt(7));
-                    synchronized (buyers) {
-                        buyers.add(buyer);
-                        buyers.notify();
-                    }
+                    Buyer buyer = regularBuyers.get(random.nextInt(6));
+                    queue.insert(buyer);
                 }
             }
         });

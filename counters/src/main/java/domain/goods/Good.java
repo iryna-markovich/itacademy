@@ -1,4 +1,4 @@
-package goods;
+package domain.goods;
 
 public interface Good {
     String getName();

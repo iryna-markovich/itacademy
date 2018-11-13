@@ -5,8 +5,8 @@ import java.util.Queue;
 public class MultiThreadCounter {
     private Counter counter;
 
-    public MultiThreadCounter(Queue<Buyer> buyers) {
-        this.counter = new Counter(buyers);
+    public MultiThreadCounter(BuyerQueue queue) {
+        this.counter = new Counter(queue);
     }
 
     public void service() {
