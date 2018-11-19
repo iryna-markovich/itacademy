@@ -19,7 +19,7 @@ public class SearchByName implements Operation {
 
     @Override
     public void call() {
-        Set<Good> goodList = shop.getGoodList();
+        Set<Good> goodList = shop.getGoods();
         System.out.println("Введите наименование товара: ");
         String toSearchString = SCANNER.next();
 

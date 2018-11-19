@@ -19,7 +19,7 @@ public class SortByPrice extends GoodsPriceComparator implements Operation {
     @Override
     public void call() {
         Set<Good> goodListSortByPrice = new TreeSet<>(goodsPriceComparator);
-        for (Good item : shop.getGoodList()) {
+        for (Good item : shop.getGoods()) {
             goodListSortByPrice.add(item);
         }
         shop.showTableHead();

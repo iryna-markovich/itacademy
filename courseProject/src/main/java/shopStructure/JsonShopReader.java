@@ -6,11 +6,12 @@ import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-
-import static menu.Menu.setShop;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class JsonShopReader {
     public void call() {
+        Gson gson;
         String path = "D:\\Learning\\JAVA\\itacademy\\courseProject\\src\\main\\resources\\shop.json";
         BufferedReader bufferedReader = null;
         try {
@@ -18,9 +19,16 @@ public class JsonShopReader {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        Gson gson = new GsonBuilder().registerTypeAdapter(Shop.class, new ShopDeserializer())
+        gson = new GsonBuilder()
+                .registerTypeAdapter(Shop.class, new ShopDeserializer())
+                //.registerTypeAdapter(String.class, new EmailDeserializer())
+                .registerTypeAdapter(Date.class, new YearDeserializer())
                 .registerTypeAdapter(Good.class, new GoodDeserializer())
                 .create();
-        setShop(gson.fromJson(bufferedReader, Shop.class));
+        Shop shop = gson.fromJson(bufferedReader, Shop.class);
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .create();
+        gson.toJson(shop);
     }
 }

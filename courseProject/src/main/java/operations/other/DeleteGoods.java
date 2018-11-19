@@ -17,7 +17,7 @@ public class DeleteGoods implements Operation {
 
     @Override
     public void call() {
-        Set<Good> goodList = shop.getGoodList();
+        Set<Good> goodList = shop.getGoods();
         System.out.println("Какой товар нужно удалить?");
         long toDelete = SCANNER.nextLong();
         System.out.println("Tовар .......... " + toDelete + " удален");
