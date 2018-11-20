@@ -1,6 +1,7 @@
 package shopStructure;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Good {
     private int id;
@@ -73,8 +74,8 @@ public class Good {
     @Override
     public String toString() {
         StringBuilder info = new StringBuilder("%-10s%-15s%-30s%-15s%-10s%-10s%n");
-        info.append(id).append(name).append(description).append(year).append(price).append(visible);
-        return "info";
+        info.append(getId()).append(name).append(description).append(year).append(price).append(visible).append("\n");
+        return info.toString();
     }
 }
 

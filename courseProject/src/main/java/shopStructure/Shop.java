@@ -3,34 +3,43 @@ package shopStructure;
 import com.google.gson.Gson;
 import operations.GoodsNameComparator;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class Shop extends GoodsNameComparator {
-    ShopDeserializer shopDeserializer;
+    private String name;
+    private String location;
+    private Set<String> emails;
+    private Set<Good> goods = new TreeSet<>(new GoodsNameComparator());
 
-    private GoodsNameComparator goodsNameComparator = new GoodsNameComparator();
-
-    private Set<Good> goodList = new TreeSet<>(goodsNameComparator);
-
-    public Shop(Set<Good> good) {
-        this.goodList = goodList;
-    }
-
+    //public Shop(Set<Good> goods) {
+    // this.goods = goods;
+    //}
     public Shop() {
     }
 
-    public void add(Good good) {
-        goodList.add(good);
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Set<Good> getGoodList() {
-        return goodList;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void addGood(Good good) {
+        goods.add(good);
+    }
+
+    public void addEmail(String email) {
+        emails.add(email);
     }
 
     public int size() {
-        return goodList.size();
+        return goods.size();
     }
+
 
     public void showTableHead() {
         System.out.printf("%-10s%-15s%-30s%-15s%-10s%-10s%n", "ID", "Name", "Description", "Year", "Price", "On stock");
@@ -38,14 +47,24 @@ public class Shop extends GoodsNameComparator {
     }
 
     public void showGoods() {
-        showTableHead();
-        for (Good item : goodList) {
+        for (Good item : goods) {
             item.toString();
         }
     }
 
+    public Set<Good> getGoods() {
+        return goods;
+    }
+
     public String toJson() {
         return new Gson().toJson(this);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder info = new StringBuilder(name);
+        info.append("\n").append(location).append(" | ").append(emails);
+        return info.toString();
     }
 
 }

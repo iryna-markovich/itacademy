@@ -1,9 +1,6 @@
 package shopStructure;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
+import com.google.gson.*;
 
 import java.lang.reflect.Type;
 import java.text.ParseException;
@@ -18,13 +15,15 @@ public class YearDeserializer implements JsonDeserializer<Date> {
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-
         try {
             return formatter.parse(date);
         } catch (ParseException e) {
-            System.err.println("Failed to parse Date due to:");
+            e.printStackTrace();
             return null;
         }
     }
+//    @Override
+//    public LocalDate deserialize(JsonElement element, Type type, JsonDeserializationContext context) throws JsonParseException {
+//        return LocalDate.parse(element.getAsString(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+//    }
 }
-

@@ -17,7 +17,7 @@ public class SearchByPriceRange implements Operation {
 
     @Override
     public void call() {
-        Set<Good> goodList = shop.getGoodList();
+        Set<Good> goodList = shop.getGoods();
         System.out.println("Введите два числа товара: ");
         int toSearchFirstNumber = SCANNER.nextInt();
         int toSearchLastNumber = SCANNER.nextInt();
