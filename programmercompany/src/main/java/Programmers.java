@@ -11,13 +11,12 @@ public class Programmers {
     String user = "root";
     String password = "1234";
 
-    public List<Programmer> find(String language) {
-        List<Programmer> programmers = new ArrayList<Programmer>();
-        try {
-            Connection connection = DriverManager.getConnection(url, user, password);
-            PreparedStatement pstmt = connection.prepareStatement("select * from programmer inner join company on programmer.company_id=company.id where language=\"Java\" ");
-            pstmt.setString(1, language);
-            ResultSet resultSet = pstmt.executeQuery();
+    public List<Programmer> find(String language) throws ProgrammerFindException, SQLException {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+             PreparedStatement pstmt = set(connection.prepareStatement(
+                     "select * from programmer inner join company on programmer.company_id=company.id where language=?"), language);
+             ResultSet resultSet = pstmt.executeQuery()) {
+            List<Programmer> programmers = new ArrayList<>();
             while (resultSet.next()) {
                 Programmer programmer = new Programmer.Builder()
                         .name(resultSet.getString(2))
@@ -28,13 +27,17 @@ public class Programmers {
                                 .name(resultSet.getString(8))
                                 .build())
                         .build();
+                programmers.add(programmer);
             }
             return programmers;
-
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new ProgrammerFindException(e);
         }
-        return null;
     }
 
+    private PreparedStatement set(PreparedStatement pstmt, String language) throws SQLException {
+        pstmt.setString(1, language);
+        return pstmt;
+    }
 }
+
