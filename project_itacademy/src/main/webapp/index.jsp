@@ -1,7 +1,7 @@
 <html>
 <body>
 
-<form name="plumberForm" action="addplumber" method="POST">
+<form name="plumberForm" action="plumbers" method="POST">
     <table>
         <caption>Add new PLUMBER</caption>
         <tr>

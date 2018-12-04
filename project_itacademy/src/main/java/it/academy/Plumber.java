@@ -1,4 +1,4 @@
-package it.academy.lesson19;
+package it.academy;
 
 public class Plumber {
     private String name;
@@ -9,6 +9,18 @@ public class Plumber {
         this.name = name;
         this.experience = experience;
         this.fresh = fresh;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public boolean isFresh() {
+        return fresh;
     }
 
     @Override
